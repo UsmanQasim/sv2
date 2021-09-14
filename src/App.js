@@ -1,29 +1,28 @@
-import React, { useState } from "react";
-import Main from "./components/pages/Main";
-import SideNav from "./components/sidenav/SideNav";
+import React from "react";
 
-const NotFound = () => {
-  return <div>NotFound</div>;
-};
+import { AnimatePresence } from "framer-motion";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+
+import routes from "./components/routes";
+
+import Navbar from "./components/navbar/Nav";
+import notFound from "./components/pages/Page404";
 
 const App = () => {
-  const [selected, setSelected] = useState("menu");
-  const showComponent = () => {
-    switch (selected) {
-      case "main":
-        return <Main />;
-      default:
-        return <NotFound />;
-    }
-  };
-
   return (
-    <>
-      <div className="megaContainer">
-        <SideNav selected={selected} setSelected={setSelected} />
-        {selected ? showComponent() : ""}
-      </div>
-    </>
+    <AnimatePresence exitBeforeEnter>
+      <BrowserRouter>
+        <Switch>
+          <Navbar />
+          <Switch>
+            {routes.map(({ destination, page }, key) => (
+              <Route path={destination} component={page} key={key} exact />
+            ))}
+            <Redirect to="/notFound" component={notFound} />
+          </Switch>
+        </Switch>
+      </BrowserRouter>
+    </AnimatePresence>
   );
 };
 
