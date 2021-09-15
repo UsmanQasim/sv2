@@ -9,16 +9,6 @@ import styles from "./styles/SideNav.module.scss";
 const SideItems = [
   { name: "Home", route: "/", Icon: <AiFillHome className={styles.navIcon} /> },
   {
-    name: "Option",
-    route: "/engine",
-    Icon: <GiGears className={styles.navIcon} />,
-  },
-  {
-    name: "Option",
-    route: "/used-engines",
-    Icon: <GiGears className={styles.navIcon} />,
-  },
-  {
     name: "Weddings",
     route: "/recon-engines",
     Icon: <GiGears className={styles.navIcon} />,

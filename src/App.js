@@ -10,19 +10,22 @@ import notFound from "./components/pages/Page404";
 
 const App = () => {
   return (
-    <AnimatePresence exitBeforeEnter>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AnimatePresence exitBeforeEnter>
         <Switch>
-          <Navbar />
-          <Switch>
-            {routes.map(({ destination, page }, key) => (
-              <Route path={destination} component={page} key={key} exact />
-            ))}
-            <Redirect to="/notFound" component={notFound} />
-          </Switch>
+          <Route exact path="/notfound" component={notFound} />
+          <Route>
+            <Navbar />
+            <Switch>
+              {routes.map(({ destination, page }, key) => (
+                <Route path={destination} component={page} key={key} exact />
+              ))}
+              <Redirect to="/notFound" component={notFound} />
+            </Switch>
+          </Route>
         </Switch>
-      </BrowserRouter>
-    </AnimatePresence>
+      </AnimatePresence>
+    </BrowserRouter>
   );
 };
 

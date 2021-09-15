@@ -1,14 +1,12 @@
 import Main from "./pages/Main";
+import Contact from "./pages/Contact";
 
 const routes = [
-  { destination: "./", page: Main },
+  { destination: "/", page: Main },
   //   { destination: "/gallery", page: Gallery },
   //   { destination: "/about", page: About },
-  //   { destination: "/contact", page: Contact },
-  //   { destination: "/used-engines", page: UsedEngines },
-  //   { destination: "/recon-engines", page: ReconEngines },
+  { destination: "/contact", page: Contact },
   //   { destination: "/privacy-policy", page: PrivacyPolicy },
-  //   { destination: "/engine", page: SelectEngine },
 ];
 
 export default routes;
